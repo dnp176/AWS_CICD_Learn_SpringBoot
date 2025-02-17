@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17  # Java 17 का उपयोग करें (आपके प्रोजेक्ट के अनुसार बदलें)
+    commands:
+      - echo Installing dependencies...
+      - apt-get update -y
+      - apt-get install maven -y  # Maven इंस्टॉल करें
+
+  build:
+    commands:
+      - echo Building the project...
+      - mvn clean install -DskipTests  # Maven के जरिए प्रोजेक्ट को बिल्ड करें और टेस्ट को स्किप करें
+
+  post_build:
+    commands:
+      - echo Build complete.
+      - mv target/*.jar app.jar  # JAR फाइल को 'app.jar' के रूप में रीनेम करें
+
+artifacts:
+  files:
+    - app.jar  # जो JAR फाइल बनाई गई, उसे artifacts में स्टोर करें
+  discard-paths: yes  # फाइल के पैथ को डिस्कार्ड करें
