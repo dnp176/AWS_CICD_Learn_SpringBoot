@@ -1,0 +1,15 @@
+version: 0.0
+os: linux
+files:
+  - source: /target/app.jar
+    destination: /home/ubuntu/app.jar
+
+hooks:
+  AfterInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/start_application.sh
+      timeout: 300
+      runas: ubuntu
