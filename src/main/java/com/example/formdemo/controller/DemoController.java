@@ -13,12 +13,30 @@ public class DemoController {
 	@RequestMapping("/")
 	public String home() {
 		System.out.println("home screen...");
-		return "<h1 style='color:red'>Home Screen</h1>";
+		return "<h1 style='color:yellow'>Home Screen</h1>";
 	}
 	
 	@RequestMapping("/demo")
 	public String demoRequeString(){
 		System.out.println("demoRequeString screen...");
 		return "<h1 style='color:blue'>Demo Controller ... !!!</h1>";
+	}
+	
+	@RequestMapping("/test1")
+	public String test1(){
+		System.out.println("testing1111 screen...");
+		return "<h1 style='color:Chartreuse'>testing1111 Screen ... !!!</h1>";
+	}
+	
+	@RequestMapping("/test2")
+	public String test2(){
+		System.out.println("testing2222 screen...");
+		return "<h1 style='color:Chocolate'>testing22222 Screen ... !!!</h1>";
+	}
+	
+	@RequestMapping("/test3")
+	public String test3(){
+		System.out.println("testing3333 screen...");
+		return "<h1 style='color:DarkOrange'>testing33333 Screen ... !!!</h1>";
 	}
 }
