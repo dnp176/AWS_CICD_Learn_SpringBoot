@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 
 files:
-  - source: app.war
+  - source: SimpleAWSApp.war
     destination: /home/ubuntu/deployments/
 
 hooks:
