@@ -14,13 +14,13 @@ phases:
       - echo Building the WAR project...
       - mvn clean package -DskipTests
       - ls target/
-      - mv target/SimpleAWSApp.war app.war
+      - cp target/SimpleAWSApp.war SimpleAWSApp.war
 
   post_build:
     commands:
       - echo Build complete.
       - mkdir -p deploy_bundle
-      - cp app.war deploy_bundle/
+      - cp SimpleAWSApp.war deploy_bundle/
       - cp appspec.yml deploy_bundle/
       - cp -r scripts deploy_bundle/
       - echo Folder structure prepared.
