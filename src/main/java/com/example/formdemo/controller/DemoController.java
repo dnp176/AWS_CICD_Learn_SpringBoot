@@ -39,4 +39,10 @@ public class DemoController {
 		System.out.println("testing3333 screen...");
 		return "<h1 style='color:DarkOrange'>testing33333 Screen ... !!!</h1>";
 	}
+
+	@RequestMapping("/test4")
+	public String test3(){
+		System.out.println("testing4444 screen...");
+		return "<h1 style='color:red'>testing44444 Screen ... !!!</h1>";
+	}
 }
