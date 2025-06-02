@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "=== Starting application ==="
+
+# Ensure WAR file exists
+if [ -f /home/ubuntu/deployments/SimpleAWSApp.war ]; then
+  nohup java -jar /home/ubuntu/deployments/SimpleAWSApp.war > /home/ubuntu/deployments/app.log 2>&1 &
+  echo "Application started."
+else
+  echo "WAR file not found. Deployment failed."
+  exit 1
+fi
