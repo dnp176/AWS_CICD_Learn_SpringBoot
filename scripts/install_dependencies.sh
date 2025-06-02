@@ -8,6 +8,6 @@ echo "=== Creating deployment directory if not exists ==="
 mkdir -p /home/ubuntu/deployments/
 
 echo "=== Cleaning old WAR files ==="
-rm -rf /home/ubuntu/deployments/app.war
+rm -rf /home/ubuntu/deployments/SimpleAWSApp.war
 
 echo "Dependencies installed and old WAR removed."
