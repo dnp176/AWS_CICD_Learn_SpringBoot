@@ -13,14 +13,21 @@ phases:
     commands:
       - echo Building the WAR project...
       - mvn clean package -DskipTests
+      - ls target/
+      - mv target/SimpleAWSApp.war app.war
 
   post_build:
     commands:
       - echo Build complete.
-      - ls target/  # Verify WAR file bana ki nahi
-      - mv target/SimpleAWSApp.war app.war  # WAR ko rename karo (optional)
+      - mkdir -p deploy_bundle
+      - cp app.war deploy_bundle/
+      - cp appspec.yml deploy_bundle/
+      - cp -r scripts deploy_bundle/
+      - cd deploy_bundle
+      - zip -r ../sp_artifact.zip .
+      - cd ..
 
 artifacts:
   files:
-    - app.war
+    - sp_artifact.zip
   discard-paths: yes
