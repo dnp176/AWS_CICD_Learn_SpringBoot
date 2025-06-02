@@ -45,4 +45,10 @@ public class DemoController {
 		System.out.println("testing4444 screen...");
 		return "<h1 style='color:red'>NEw Updated 1.0.1</h1>";
 	}
+
+	@RequestMapping("/test5")
+	public String test5(){
+		System.out.println("testing55555 screen...");
+		return "<h1 style='color:red'>NEw Updated 2.0.1</h1>";
+	}
 }
