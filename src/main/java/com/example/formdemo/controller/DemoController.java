@@ -43,6 +43,6 @@ public class DemoController {
 	@RequestMapping("/test4")
 	public String test4(){
 		System.out.println("testing4444 screen...");
-		return "<h1 style='color:red'>testing44444 Screen ... !!!</h1>";
+		return "<h1 style='color:red'>NEw Updated 1.0.1</h1>";
 	}
 }
