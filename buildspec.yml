@@ -19,17 +19,13 @@ phases:
   post_build:
     commands:
       - echo Build complete.
-      - mkdir -p deploy_bundle
+      - mkdir -p deploy_bundle/scripts
       - cp app.war deploy_bundle/
       - cp appspec.yml deploy_bundle/
-      - cp -r scripts deploy_bundle/
-      - cd deploy_bundle
-      - zip -r ../sp_artifact.zip .
-      - cd ..
+      - cp -r scripts/* deploy_bundle/scripts/
+      - echo Files copied to deploy_bundle.
 
 artifacts:
   files:
-    - app.war
-    - appspec.yml
-    - scripts/**
+    - deploy_bundle/**/*
   discard-paths: yes
