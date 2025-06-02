@@ -20,8 +20,6 @@
 
     <properties>
         <java.version>17</java.version>
-        <!-- Version number for deployment -->
-        <deploy.version>002</deploy.version>
     </properties>
 
     <dependencies>
@@ -37,20 +35,20 @@
             </exclusions>
         </dependency>
 
-        <!-- Provided Tomcat for WAR deployment -->
+        <!-- Provided scope Tomcat for external deployment -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Optional SOAP support -->
+        <!-- (Optional) SOAP support -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web-services</artifactId>
         </dependency>
 
-        <!-- Development tools -->
+        <!-- Dev tools -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -58,7 +56,7 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- Unit testing -->
+        <!-- Unit Testing -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -67,12 +65,23 @@
     </dependencies>
 
     <build>
-        <!-- Generate WAR as SimpleAWSApp##001.war -->
         <finalName>SimpleAWSApp</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
             </plugin>
         </plugins>
     </build>
